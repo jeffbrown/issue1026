@@ -8,13 +8,13 @@ class PersonService {
 
     Number countPeopleThatHaveAFirstName() {
         new DetachedCriteria(Person).where {
-            firstName != null
+            isNotNull "firstName"
         }.count()
     }
 
     Number countPeopleWithNoFirstName() {
          new DetachedCriteria(Person).where {
-            firstName == null
+            isNull "firstName"
         }.count()
     }
 }
